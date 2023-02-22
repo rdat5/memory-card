@@ -14,14 +14,14 @@ function App() {
           <Score currentScore={0} highScore={0}/>
         </div>
         <div className="cards-container">
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
+          <Card cardIndex={0}/>
+          <Card cardIndex={1}/>
+          <Card cardIndex={2}/>
+          <Card cardIndex={3}/>
+          <Card cardIndex={4}/>
+          <Card cardIndex={5}/>
+          <Card cardIndex={6}/>
+          <Card cardIndex={7}/>
         </div>
       </main>
       <footer className="page-footer">
