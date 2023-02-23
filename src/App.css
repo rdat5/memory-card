@@ -1,9 +1,16 @@
+:root {
+    --header: rgb(115, 111, 197);
+    --main_bg: rgb(55, 41, 109);
+    --info: rgb(255, 222, 179);
+    --footer: rgb(51, 82, 60);
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
-    background-color: #e4e4e4;
+    background-color: #000000;
     padding: 5px;
     height: 100vh;
     margin: 0;
@@ -12,7 +19,7 @@ body {
 }
 
 .page-wrap {
-    background-color: white;
+    background-color: rgb(0, 0, 0);
     height: calc(100vh - 10px);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.33);
     display: grid;
@@ -26,11 +33,13 @@ body {
 }
 
 .page-header {
-    background-color: #ffcdd2;
+    background-color: var(--header);
+    color: white;
+    text-shadow:0 0 12px rgb(0, 0, 0)
 }
 
 .page-main {
-    background-color: #dcedc8;
+    background-color: var(--main_bg);
     display: grid;
     grid-template-rows: min-content 1fr;
 }
@@ -39,8 +48,9 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    background-color: lightgreen;
+    background-color: var(--info);
     padding: .5rem;
+    border-radius: 2vh;
 }
 
 .cards-container {
@@ -51,7 +61,7 @@ body {
 }
 
 .card {
-    background-color: white;
+    background-color: var(--info);
     display: grid;
     grid-template-rows: 1fr min-content;
     border-radius: 2vh;
@@ -73,5 +83,6 @@ body {
 }
 
 .page-footer {
-    background-color: #ffecb3;
+    background-color: var(--footer);
+    color: white;
 }
