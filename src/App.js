@@ -3,6 +3,22 @@ import Score from "./Score";
 import Card from "./Card";
 
 function App() {
+  function getNewCardOrder() {
+    let cardIndexes = [0, 1, 2, 3, 4, 5, 6, 7]
+    
+    for (let i = cardIndexes.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cardIndexes[i], cardIndexes[j]] = [cardIndexes[j], cardIndexes[i]];
+    }
+
+    return cardIndexes;
+  }
+
+  function getNewCardList() {
+    let cardOrder = getNewCardOrder();
+    return cardOrder.map(cardId => <Card key={cardId} cardIndex={cardId}/>);
+  }
+
   return (
     <div className="page-wrap">
       <header className="page-header">
@@ -14,14 +30,7 @@ function App() {
           <Score currentScore={0} highScore={0}/>
         </div>
         <div className="cards-container">
-          <Card cardIndex={0}/>
-          <Card cardIndex={1}/>
-          <Card cardIndex={2}/>
-          <Card cardIndex={3}/>
-          <Card cardIndex={4}/>
-          <Card cardIndex={5}/>
-          <Card cardIndex={6}/>
-          <Card cardIndex={7}/>
+          {getNewCardList()}
         </div>
       </main>
       <footer className="page-footer">
