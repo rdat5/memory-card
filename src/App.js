@@ -20,13 +20,15 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(selectedCards);
-  }, [score]);
+    if (score > highScore) {
+      setHighScore(score);
+    }
+  }, [score, highScore]);
 
   function onCardClick(cardIndex) {
     if (!selectedCards.includes(cardIndex)) {
       setScore(score + 1);
-      
+
       let newSelectedCards = selectedCards.slice();
       newSelectedCards.push(cardIndex);
       setSelectedCards(newSelectedCards);
