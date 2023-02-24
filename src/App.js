@@ -2,6 +2,7 @@ import "./App.css";
 import Score from "./Score";
 import Card from "./Card";
 import { useState, useEffect } from "react";
+import { cardData } from "./data";
 
 function App() {
   const [score, setScore] = useState(0);
@@ -19,9 +20,18 @@ function App() {
     return cardIndexes;
   }
 
+  function resetGame() {
+    setScore(0);
+    setSelectedCards([]);
+  }
+
   useEffect(() => {
     if (score > highScore) {
       setHighScore(score);
+    }
+    if (score === 8) {
+      alert('You win!');
+      resetGame();
     }
   }, [score, highScore]);
 
@@ -34,8 +44,8 @@ function App() {
       setSelectedCards(newSelectedCards);
     } else {
       // reset game
-      setScore(0);
-      setSelectedCards([]);
+      resetGame();
+      alert(`You already selected ${cardData[cardIndex].name}!`);
     }
   }
 
